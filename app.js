@@ -11,6 +11,7 @@ const winConditions = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
 let O = ["O", "url('O.png')"];
 let X = ["X", "url('X.png')"];
 let options = ["", "", "", "", "", "", "", "", ""];
@@ -33,13 +34,42 @@ function cellClicked() {
   }
   updateCell(this, cellIndex);
   checkWinner();
+  changePlayer();
 }
 function updateCell(cell, index) {
   const boxId = document.getElementsByClassName("cell")[index];
   console.log(boxId);
-  options[index] = currPlayer;
+  options[index] = currPlayer[0];
   boxId.style.backgroundImage = currPlayer[1];
+  console.log(options);
 }
-function changePlayer() {}
-function checkWinner() {}
+function changePlayer() {
+  currPlayer = currPlayer == X ? O : X;
+  statusText.textContent = `${currPlayer[0]}'s turn`;
+}
+function checkWinner() {
+  let foundAWinner = false;
+
+  for (let i = 0; i < winConditions.length; i++) {
+    const currCond = winConditions[i];
+    const cellA = options[currCond[0]];
+    const cellB = options[currCond[1]];
+    const cellC = options[currCond[2]];
+
+    if (cellA == "" || cellB == "" || cellC == "") {
+      continue;
+    }
+    if (cellA == cellB && cellB == cellC) {
+      let foundAWinner = true;
+      break;
+    }
+  }
+  if (foundAWinner) {
+    statusText.textContent = `${currPlayer[0]} wins!`;
+    running = false;
+  } else if (!options.includes("")) {
+    statusText.textContent = `Draw :(`;
+    running = false;
+  }
+}
 function resetGame() {}

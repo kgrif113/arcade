@@ -14,7 +14,7 @@ body {
   font-size: 500%;
   height: 20vh;
   padding-top: 20px;
-  width: ;
+  width: 100vw;
 }
 
 #game-container {
@@ -32,7 +32,6 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  /* background-image: url(O.png); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
