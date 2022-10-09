@@ -32,6 +32,10 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
+  /* background-image: url(O.png); */
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #resetBtn {
   display: flex;
@@ -43,4 +47,10 @@ body {
   cursor: pointer;
   background: none;
   border: none;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Grandstander", cursive;
+  font-style: oblique;
 }
