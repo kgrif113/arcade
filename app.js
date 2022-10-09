@@ -32,10 +32,10 @@ function cellClicked() {
   if (options[cellIndex] != "" || !running) {
     return;
   }
+
   updateCell(this, cellIndex);
   checkWinner();
   changePlayer();
-  console.log(options);
 }
 function updateCell(cell, index) {
   options[index] = currPlayer[0];
@@ -59,7 +59,7 @@ function checkWinner() {
       continue;
     }
     if (cellA == cellB && cellB == cellC) {
-      let foundAWinner = true;
+      foundAWinner = true;
       break;
     }
   }
@@ -69,6 +69,8 @@ function checkWinner() {
   } else if (!options.includes("")) {
     statusText.textContent = `Draw :(`;
     running = false;
+  } else {
+    // changePlayer();
   }
 }
 function resetGame() {}
