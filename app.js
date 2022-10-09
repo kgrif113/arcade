@@ -15,6 +15,7 @@ const winConditions = [
 let O = ["O", "url('O.png')"];
 let X = ["X", "url('X.png')"];
 let options = ["", "", "", "", "", "", "", "", ""];
+
 let currPlayer = O;
 let running = false;
 
@@ -28,20 +29,18 @@ function startGame() {
 }
 function cellClicked() {
   const cellIndex = this.getAttribute("cellIndex");
-  console.log(cellIndex);
   if (options[cellIndex] != "" || !running) {
     return;
   }
   updateCell(this, cellIndex);
   checkWinner();
   changePlayer();
+  console.log(options);
 }
 function updateCell(cell, index) {
-  const boxId = document.getElementsByClassName("cell")[index];
-  console.log(boxId);
   options[index] = currPlayer[0];
+  const boxId = document.getElementsByClassName("cell")[index];
   boxId.style.backgroundImage = currPlayer[1];
-  console.log(options);
 }
 function changePlayer() {
   currPlayer = currPlayer == X ? O : X;
