@@ -14,7 +14,7 @@ const winConditions = [
 let O = ["O", "url('O.png')"];
 let X = ["X", "url('X.png')"];
 let options = ["", "", "", "", "", "", "", "", ""];
-let currPlayer = X;
+let currPlayer = O;
 let running = false;
 
 startGame();
