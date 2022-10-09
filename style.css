@@ -14,19 +14,18 @@ body {
   font-size: 500%;
   height: 20vh;
   padding-top: 20px;
+  width: ;
 }
 
 #game-container {
   display: grid;
   justify-content: center;
-  align-content: center;
-  grid-auto-flow: column;
-  cursor: pointer;
+  grid-template-columns: repeat(3, auto);
+  width: 250px;
   margin: auto;
-  width: fit-content;
-  padding-bottom: 15px;
+  cursor: pointer;
 }
-.column {
+.cell {
   width: 100px;
   height: 100px;
   border: 2px solid black;
@@ -34,17 +33,14 @@ body {
   justify-content: center;
   align-content: center;
 }
-#reset {
-  display: grid;
+#resetBtn {
+  display: flex;
   justify-content: center;
-  align-content: center;
-  grid-auto-flow: column;
-  cursor: pointer;
+  text-align: center;
   margin: auto;
   width: fit-content;
-  background-color: white;
-  position: relative;
-
   height: fit-content;
-  width: fit-content;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
