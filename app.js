@@ -1,6 +1,8 @@
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartButton = document.querySelector("#resetBtn");
+const player1 = prompt("What is player 1's name?");
+const player2 = prompt("What is player 2's name?");
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -12,8 +14,8 @@ const winConditions = [
   [2, 4, 6],
 ];
 
-let O = ["O", "url('O.png')"];
-let X = ["X", "url('X.png')"];
+let O = [`${player1}`, "url('O.png')"];
+let X = [`${player2}`, "url('X.png')"];
 let options = ["", "", "", "", "", "", "", "", ""];
 
 let currPlayer = O;
@@ -33,8 +35,9 @@ function cellClicked() {
     return;
   }
   updateCell(this, cellIndex);
-  changePlayer();
   checkWinner();
+  changePlayer();
+
   console.log(options);
 }
 function updateCell(cell, index) {
@@ -44,8 +47,15 @@ function updateCell(cell, index) {
 }
 function changePlayer() {
   // currPlayer = currPlayer == X ? O : X;
-  if (statusText.textContent != `${currPlayer[0]} wins!`) {
-    currPlayer = currPlayer == X ? O : X;
+  if (!options.includes("")) {
+    statusText1.textContent = `Bruh, that's a draw.`;
+    running = false;
+
+    // currPlayer = currPlayer == O ? X : O;
+
+    // statusText.textContent = `${currPlayer[0]} wins!`;
+  } else if (statusText.textContent != `${currPlayer[0]} wins!`) {
+    currPlayer = currPlayer == O ? X : O;
     statusText.textContent = `${currPlayer[0]}'s turn`;
   }
   // statusText.textContent = `${currPlayer[0]}'s turn`;
@@ -74,7 +84,6 @@ function checkWinner() {
   } else if (!options.includes("")) {
     statusText1.textContent = `Bruh, that's a draw.`;
     running = false;
-  } else {
   }
 }
 function resetGame() {}
