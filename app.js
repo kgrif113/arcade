@@ -32,10 +32,10 @@ function cellClicked() {
   if (options[cellIndex] != "" || !running) {
     return;
   }
-
   updateCell(this, cellIndex);
-  checkWinner();
   changePlayer();
+  checkWinner();
+  console.log(options);
 }
 function updateCell(cell, index) {
   options[index] = currPlayer[0];
@@ -43,12 +43,16 @@ function updateCell(cell, index) {
   boxId.style.backgroundImage = currPlayer[1];
 }
 function changePlayer() {
-  currPlayer = currPlayer == X ? O : X;
-  statusText.textContent = `${currPlayer[0]}'s turn`;
+  // currPlayer = currPlayer == X ? O : X;
+  if (statusText.textContent != `${currPlayer[0]} wins!`) {
+    currPlayer = currPlayer == X ? O : X;
+    statusText.textContent = `${currPlayer[0]}'s turn`;
+  }
+  // statusText.textContent = `${currPlayer[0]}'s turn`;
 }
 function checkWinner() {
   let foundAWinner = false;
-
+  const statusText1 = document.querySelector("#statusText");
   for (let i = 0; i < winConditions.length; i++) {
     const currCond = winConditions[i];
     const cellA = options[currCond[0]];
@@ -64,13 +68,13 @@ function checkWinner() {
     }
   }
   if (foundAWinner) {
-    statusText.textContent = `${currPlayer[0]} wins!`;
+    console.log(currPlayer[0]);
+    statusText1.textContent = `${currPlayer[0]} wins!`;
     running = false;
   } else if (!options.includes("")) {
-    statusText.textContent = `Draw :(`;
+    statusText1.textContent = `Bruh, that's a draw.`;
     running = false;
   } else {
-    // changePlayer();
   }
 }
 function resetGame() {}
