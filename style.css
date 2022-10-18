@@ -3,18 +3,21 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  overflow: scroll;
 }
 
 .header {
   display: flex;
-  font-size: 300%;
   border-width: 100%;
   justify-content: center;
   font-family: "Grandstander", cursive;
-  font-size: 500%;
-  height: 20vh;
+  font-size: 400%;
+  height: 10vh;
   padding-top: 10px;
   width: 100vw;
+  margin: auto;
+  text-align: center;
+  border: 2px solid black;
 }
 
 #game-container {
@@ -48,9 +51,14 @@ body {
   border: none;
 }
 h2 {
+  margin: auto;
   display: flex;
+  text-align: center;
   justify-content: center;
   font-family: "Grandstander", cursive;
   font-style: oblique;
   font-size: 400%;
+}
+::-webkit-scrollbar {
+  display: none;
 }

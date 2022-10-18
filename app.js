@@ -1,4 +1,5 @@
 const cells = document.querySelectorAll(".cell");
+console.log(cells);
 const statusText = document.querySelector("#statusText");
 const restartButton = document.querySelector("#resetBtn");
 const player1 = prompt("What is player 1's name?");
@@ -31,6 +32,7 @@ function startGame() {
 }
 function cellClicked() {
   const cellIndex = this.getAttribute("cellIndex");
+  console.log(cellIndex);
   if (options[cellIndex] != "" || !running) {
     return;
   }
